@@ -1,0 +1,58 @@
+.bg-color{
+    background: transparent linear-gradient(248deg, #303F60 0%, #1A253C 100%) 0% 0% no-repeat padding-box;
+    color:white;
+}
+
+.navbar-light .navbar-brand {
+    color: white;
+    padding-left: 70px;
+
+    .jobs{
+        color:#43AFFF
+    }
+}
+
+.login {
+    color: white;
+    background: #43AFFF33 0% 0% no-repeat padding-box;
+    border: 1px solid #43AFFF;
+    border-radius: 5px;
+}
+
+.navbar-expand-sm .navbar-nav {
+    flex-direction: row;
+    padding-right: 70px;
+}
+
+.profile{
+    background: #D9EFFF 0% 0% no-repeat padding-box;
+    border-radius: 50%;
+    padding: 10px 17px;
+    color:#303F60;
+}
+
+.caret{
+    position: relative;
+}
+
+.drop{
+    position: absolute;
+    right: 80px;
+    top: 60px;
+    background-color: white;
+    color: black;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.drop::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: 80%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}

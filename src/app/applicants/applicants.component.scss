@@ -1,0 +1,48 @@
+.modal-content {
+    padding: 5px 15px;
+    width: 600px;
+    max-height: 600px;
+    overflow: scroll;
+}
+
+.appl-div{
+    padding:10px;
+    background-color: #557DA526;
+}
+
+.no-appl{
+    height: 450px;
+    background-color: #557DA526;
+}
+
+.noappl-text{
+    text-align: center;
+    font: 20px;
+    letter-spacing: 0px;
+    color: #303F60;
+}
+
+.profile{
+    background: #D9EFFF 0% 0% no-repeat padding-box;
+    border-radius: 50%;
+    padding: 5px 15px;
+}
+
+.appl-card{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #A9AFBC;
+    border-radius: 5px;
+    height: 162px;
+}
+
+.appl-desc{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.modal-body {
+    padding: 5px;
+}
+
+.card-header{
+ padding:5px;
+}

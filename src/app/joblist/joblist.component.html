@@ -1,0 +1,62 @@
+<div class="container-fluid m-0 p-0">
+    <div class="m-auto bg-color">
+        <div class="d-flex justify-conten-start gap-2 pt-3 align-items-center home-div" (click)="goToHome()">
+            <img src="../../assets/home.svg" alt="home" width="15px" height="15px">
+            <span class="text-white">Home</span>
+        </div>
+        <div *ngIf="jobsPosted?.length == 0" class="text-center">
+            <div class="home-bg">
+                <p class="job-text job-div">Jobs posted by you</p>
+            </div>
+            <div class="bg-colorblue">
+                <img src="../../assets/empty.png" alt="nojobs" width="90px" height="90px">
+                <p class="nojob">Your posted jobs will show here!</p>
+                <button class="btn btn-post">Post a Job</button>
+            </div>
+        </div>
+        <div class="bg-color"  *ngIf="jobsPosted?.length > 0">
+            <div class="job-div">
+                <p class="job-text">Jobs posted by you</p>
+                <div class="mt-3">
+                    <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4 mb-4" >
+                        <div class="col mb-4" *ngFor="let job of jobsPosted">
+                            <div class="card job-card">
+                                    <h5 class="card-title text-blue">{{job?.title}}</h5>
+                                    <div class="desc-div">
+                                    <p class="card-text mt-2 job-desc">{{job?.description}}</p>
+                                    </div>
+                                <div class="card-footer d-flex justify-content-between align-items-center">
+                                    <div class="text-left d-flex justify-content-between align-items-center location">
+                                        <img src="../../assets/location.svg" alt="location" width="15px" height="15px">
+                                        <p class="mb-0 job-desc text-capitalize" style="font-size:'14px';">{{job?.location?.length > 5 ? job?.location?.slice(0,5) + '..' : job?.location}}</p>
+                                    </div>
+                                    <button class="btn btn-view ms-auto" data-bs-toggle="modal" [attr.data-bs-target]="'#id' + jobId" (click)="viewApp(job.id)">View Applications</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="mt-3 text-center job-div" *ngIf="jobsPosted?.length > 0">
+                <ul class="pagination  d-flex justify-content-center">
+                 <li class="page-item"  (click)="prevPage()" [ngClass]="disablePrev ? 'disabled' : ''">
+                     <a class="page-link" aria-label="Previous">
+                       <span aria-hidden="true">&laquo;</span>
+                     </a>
+                   </li>
+                   <li class="page-item"><a class="page-link">{{currentPage}}</a></li>
+                   <li class="page-item" (click)="nextPage()" [ngClass]="disableNext ? 'disabled' : '' ">
+                     <a class="page-link" aria-label="Next">
+                       <span aria-hidden="true">&raquo;</span>
+                     </a>
+                   </li>
+                </ul>
+             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" [id]="'id' + jobId" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <app-applicants [id]="jobId" [applicantsList]="applicants"></app-applicants>
+</div>

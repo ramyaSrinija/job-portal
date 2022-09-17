@@ -1,0 +1,48 @@
+<div class="container-fluid m-0 p-0">
+    <div class="m-auto bg-color">
+        <div class="bg-color">
+            <div class="form-box">
+                <div class="form-div">
+                    <h5 class="text-blue">Login</h5>
+                    <form (ngSubmit)="submitForm()" [formGroup]="loginForm" #formRef="ngForm">
+                        <div class="mt-4">
+                            <div class="mt-4">
+                                <div>
+                                    <label for="email" class="text-blue">Email Address</label>
+                                    <input class="form-control" [ngClass]="errorMessage != '' ? 'invalid' : '' " type="email" name="email" id="email" formControlName="email" placeholder="Enter your email">
+                                </div>
+                                <div *ngIf="email. invalid && (email.dirty || email.touched)"
+                                    class="text-danger mb-3">
+                                    <div *ngIf="email.errors?.['required']">
+                                        Please enter a Email Address
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div>
+                                    <label for="password" class="text-blue">Password</label>
+                                    <input class="form-control" type="password" name="password" id="password" formControlName="password" placeholder="Enter your password" [ngClass]="errorMessage != '' ? 'invalid' : '' ">
+                                </div>
+                                <div *ngIf="password. invalid && (password.dirty || password.touched)"
+                                    class="text-danger mb-3">
+                                    <div *ngIf="password.errors?.['required']">
+                                        Please enter Password
+                                    </div>
+                                </div>
+                                <div *ngIf="errorMessage" class="text-danger mt-2 error">
+                                    Incorrect email address or password
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center pb-5">
+                            <button class="btn btn-login text-center">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

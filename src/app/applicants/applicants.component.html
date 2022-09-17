@@ -1,0 +1,41 @@
+<div class="modal-dialog">
+    <div class="modal-content" data-bs-spy="scroll">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Applicants for this job</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" *ngIf="applicantsList?.length === 0">
+        <div class="">
+            <p>0 applications</p>
+            <div class="p-5 text-center no-appl">
+                <div class="inline-block align-middle">
+                    <img src="../../assets/empty.png" alt="no applicants">
+                    <p class="noappl-text">No applications available!</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal-body" *ngIf="applicantsList?.length > 0">
+        <p>Total {{applicantsList?.length}} applications</p>
+         <div class="appl-div">
+            <div class="row row-cols-2 mt-3">
+                <div class="col mb-3" *ngFor="let appl of applicantsList">
+                    <div class="card appl-card p-1">
+                        <div class="card-header d-flex justify-content-start gap-3 align-items-center bg-transparent border-0">
+                            <div class="profile">{{appl?.name[0] | uppercase}}</div>
+                            <div class="overflow-hidden">
+                                <p class="card-title text-blue mb-0">{{appl?.name}}</p>
+                                <span class="mb-0 text-lowercase">{{appl?.email?.length > 18 ? appl?.email?.slice(0,18) + '..' : appl?.email}}</span>
+                            </div>
+                          </div>
+                          <div class="p-2 overflow-hidden">
+                            <p class="mb-1">Skills</p>
+                            <p class="card-text mt-2 appl-desc">{{appl?.skills}}</p>
+                          </div>
+                   </div>
+                </div>
+            </div>
+         </div>
+      </div>
+    </div>
+</div>
