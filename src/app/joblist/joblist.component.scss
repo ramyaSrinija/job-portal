@@ -92,3 +92,21 @@
     border-radius: 5px;
     color: white;
 }
+
+@media screen and (max-width:1026px){
+    .job-div{
+        padding: 35px;
+    }
+
+    .home-div{
+        padding: 35px;
+    }
+}
+.current-page{
+ background-color: #43AFFF33;
+}
+
+.page-link{
+    margin: 0 8px;
+    border: 1px solid #557DA526;
+}

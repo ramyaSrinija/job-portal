@@ -11,7 +11,6 @@ export class ApiService {
 
   logginedUser = new BehaviorSubject(null)
 
-  tokenStorage = new BehaviorSubject(null)
 
   loginUser(userObj:object):Observable<any>{
     return this.httpClientObj.post<any>("https://jobs-api.squareboat.info/api/v1/auth/login",userObj)

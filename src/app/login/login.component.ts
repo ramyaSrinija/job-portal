@@ -30,13 +30,11 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password
     }
-    console.log('user', user)
     this.apiService.loginUser(user).subscribe({
       next:(response)=>{
         this.token = response?.data?.token
         localStorage.setItem('token', this.token)
         this.apiService.logginedUser.next(response?.data?.name)
-        this.apiService.tokenStorage.next(this.token)
         this.toastr.success('You have successfully logged in.', 'Login', {
           timeOut: 3000,
           closeButton: true,
@@ -45,7 +43,6 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/joblist')
       },
       error:(err)=>{
-        console.log(err)
         this.errorMessage = err?.error?.message
       }
     })

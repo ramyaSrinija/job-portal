@@ -29,10 +29,8 @@ export class JoblistComponent implements OnInit {
       next: (response) => {
         this.jobsPosted = response?.data?.data
         this.noOfPages = Math.ceil(response?.data?.metadata?.count / response?.data?.metadata?.limit)
-        console.log(response, this.noOfPages)
       },
       error: (err) => {
-        console.log(err)
         this.errorMessage = err.error.message
       }
     })
@@ -58,11 +56,9 @@ export class JoblistComponent implements OnInit {
     this.jobId = id
     this.apiService.getApplicants(this.jobId).subscribe({
       next: (response) => {
-        console.log(response)
         this.applicants = response?.data
       },
       error: (err) => {
-        console.log(err)
         this.errorMessage = err.error.message
       }
     })

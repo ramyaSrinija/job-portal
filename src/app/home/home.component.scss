@@ -62,3 +62,19 @@
     padding: 10px;
     border: none;
 }
+
+@media screen and (max-width:768px){
+    .home-image{
+        width:100%;
+    }
+
+    .why-div{
+        padding: 280px 20px;
+    }
+
+    .foot-img img{
+        display: block;
+        margin: auto;
+        padding-bottom: 10px;
+    }
+}

@@ -13,6 +13,7 @@
 .no-appl{
     height: 450px;
     background-color: #557DA526;
+    padding-top: 150px;
 }
 
 .noappl-text{
@@ -45,4 +46,15 @@
 
 .card-header{
  padding:5px;
+}
+
+.text-blue{
+    color: #303F60;
+    font-weight: 600;
+}
+
+@media screen and (max-width:770px){
+    .modal-content {
+        width: 100%;
+    }
 }
