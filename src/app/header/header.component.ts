@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
 
   logOut(){
     this.apiService.logginedUser.next(null)
+    this.apiService.localUser.next(null)
     localStorage.removeItem('token')
     this.toastr.success('You have successfully logged out.', 'LogOut', {
       timeOut: 5000,

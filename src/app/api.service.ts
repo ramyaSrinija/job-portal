@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -10,7 +10,8 @@ export class ApiService {
   constructor(public httpClientObj:HttpClient) { }
 
   logginedUser = new BehaviorSubject(null)
-
+  user = localStorage.getItem('user')
+  localUser = new BehaviorSubject(this.user)
 
   loginUser(userObj:object):Observable<any>{
     return this.httpClientObj.post<any>("https://jobs-api.squareboat.info/api/v1/auth/login",userObj)

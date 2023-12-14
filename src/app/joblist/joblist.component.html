@@ -23,12 +23,12 @@
                             <div class="card job-card">
                                     <h5 class="card-title text-blue">{{job?.title}}</h5>
                                     <div class="desc-div">
-                                    <p class="card-text mt-2 job-desc">{{job?.description}}</p>
+                                    <p class="card-text mt-2 job-desc">{{job?.description?.length > 20 ? job?.description?.slice(0,20) : job?.description}}</p>
                                     </div>
                                 <div class="card-footer d-flex justify-content-between align-items-center">
                                     <div class="text-left d-flex justify-content-between align-items-center location">
                                         <img src="../../assets/location.svg" alt="location" width="15px" height="15px">
-                                        <p class="mb-0 job-desc text-capitalize" style="font-size:'14px';">{{job?.location?.length > 5 ? job?.location?.slice(0,5) + '..' : job?.location}}</p>
+                                        <p class="mb-0 job-desc" style="font-size:'14px';">{{job?.location?.length > 5 ? job?.location?.slice(0,5) + '..' : job?.location}}</p>
                                     </div>
                                     <button class="btn btn-view ms-auto" data-bs-toggle="modal" [attr.data-bs-target]="'#id' + jobId" (click)="viewApp(job.id)">View Applications</button>
                                 </div>

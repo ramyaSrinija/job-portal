@@ -2,7 +2,7 @@
     background: linear-gradient(180deg, #303F60 15%,#EDF6FF 15%)
 }
 .home-bg{ 
-    background: transparent linear-gradient(248deg, #303F60 0%, #1A253C 100%) 0% 0% no-repeat padding-box;
+    background: #303F60;
     height: 130px;
 }
 .bg-colorblue{
@@ -24,6 +24,7 @@
 .home-div{
     padding: 45px 120px 10px 120px;
     cursor: pointer;
+    background: #303F60;
 }
 
 .btn-view{

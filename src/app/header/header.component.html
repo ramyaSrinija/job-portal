@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-color">
+<nav class="navbar navbar-expand navbar-light bg-color">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">My <span class="jobs">Jobs</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,11 +6,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item login" *ngIf="apiService.logginedUser.getValue() === null">
+          <li class="nav-item login" *ngIf="apiService.localUser.getValue() === null">
             <a href="" class="nav-link text-white" routerLink="login" data-bs-toggle='collapse' data-bs-target=".navbar-collapse.show">Login/Signup</a>
           </li>
-          <li class="nav-item" *ngIf="apiService.logginedUser.getValue() !== null ">
-            <a href="" class="nav-link align-items-center align-self-center" data-bs-toggle='collapse' data-bs-target=".navbar-collapse.show"><span class="profile" (click)="openDropDown()">{{apiService.logginedUser.getValue()[0] | uppercase}}</span> <span class="align-self-center ps-1"><img src="../../assets/caret.svg" alt="caret" (click)="openDropDown()" class="caret"></span></a>
+          <li class="nav-item" *ngIf="apiService.localUser.getValue() !== null ">
+            <a href="" class="nav-link align-items-center align-self-center" data-bs-toggle='collapse' data-bs-target=".navbar-collapse.show"><span class="profile" (click)="openDropDown()">{{apiService.localUser.getValue() [0] | uppercase}}</span> <span class="align-self-center ps-1"><img src="../../assets/caret.svg" alt="caret" (click)="openDropDown()" class="caret"></span></a>
             <div class="drop" *ngIf="showDrop" (click)="logOut()">
               Logout
             </div>

@@ -27,7 +27,7 @@ export class JoblistComponent implements OnInit {
   getJobs(){
     this.apiService.getPostedJobs(this.currentPage).subscribe({
       next: (response) => {
-        this.jobsPosted = response?.data?.data
+        this.jobsPosted = response?.data?.data?.filter(job => job.location?.toLowerCase() === 'delhi')
         this.noOfPages = Math.ceil(response?.data?.metadata?.count / response?.data?.metadata?.limit)
       },
       error: (err) => {
@@ -38,6 +38,8 @@ export class JoblistComponent implements OnInit {
 
   nextPage(){
     if(this.currentPage !== this.noOfPages){
+      this.disablePrev=false
+      this.disableNext=false
       this.currentPage +=1
       this.getJobs()
       if(this.currentPage === this.noOfPages) this.disableNext=true;
@@ -46,6 +48,8 @@ export class JoblistComponent implements OnInit {
 
   prevPage(){
     if(this.currentPage !== 1){
+      this.disablePrev=false
+      this.disableNext=false
       this.currentPage -=1
       this.getJobs()
       if(this.currentPage === 1) this.disablePrev=true;

@@ -3,13 +3,13 @@
         <div class="bg-color">
             <div class="form-box">
                 <div class="form-div">
-                    <h5 class="text-blue">Login</h5>
+                    <h5 class="text-blue login-text">Login</h5>
                     <form (ngSubmit)="submitForm()" [formGroup]="loginForm" #formRef="ngForm">
                         <div class="mt-4">
                             <div class="mt-4">
                                 <div>
                                     <label for="email" class="text-blue">Email Address</label>
-                                    <input class="form-control" [ngClass]="errorMessage != '' ? 'invalid' : '' " type="email" name="email" id="email" formControlName="email" placeholder="Enter your email">
+                                    <input #refemail class="form-control" [ngClass]="errorMessage != '' ? 'invalid' : '' " type="email" name="email" id="email" formControlName="email" placeholder="Enter your email">
                                 </div>
                                 <div *ngIf="email. invalid && (email.dirty || email.touched)"
                                     class="text-danger mb-3">

@@ -30,22 +30,27 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password
     }
-    this.apiService.loginUser(user).subscribe({
-      next:(response)=>{
-        this.token = response?.data?.token
-        localStorage.setItem('token', this.token)
-        this.apiService.logginedUser.next(response?.data?.name)
-        this.toastr.success('You have successfully logged in.', 'Login', {
-          timeOut: 3000,
-          closeButton: true,
-          tapToDismiss: false,
-        });
-        this.router.navigateByUrl('/joblist')
-      },
-      error:(err)=>{
-        this.errorMessage = err?.error?.message
-      }
-    })
+    if(!user.email && !user.password){
+      this.errorMessage = 'Please enter Email and Password'
+      this.toastr.error('Please enter mandatory fields', 'Error')
+    }
+      this.apiService.loginUser(user).subscribe({
+        next:(response)=>{
+          this.token = response?.data?.token
+          localStorage.setItem('token', this.token)
+          localStorage.setItem('user', response?.data?.name)
+          this.apiService.logginedUser.next(response?.data?.name)
+          this.toastr.success('You have successfully logged in.', 'Login', {
+            timeOut: 3000,
+            closeButton: true,
+            tapToDismiss: false,
+          });
+          this.router.navigateByUrl('/joblist')
+        },
+        error:(err)=>{
+          this.errorMessage = err?.error?.message
+        }
+      })
   }
 
   get email(){return this.loginForm.get("email")}
